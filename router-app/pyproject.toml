@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "router"
+version = "0.1.0"
+description = "experimental linux router platform"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{ name = "Dan Ledwith" }]
+
+dependencies = ["PyYAML>=6.0"]
+
+[project.scripts]
+router-apply = "router.apply:main"
+router-show = "router.show:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
