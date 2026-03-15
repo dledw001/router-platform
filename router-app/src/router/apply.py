@@ -51,7 +51,7 @@ def parse_args() -> argparse.Namespace:
 def require_root() -> None:
     if os.geteuid() != 0:
         print(
-            "ERROR: router-apply must be run as root. Try: sudo .venv/bin/router-apply",
+            "ERROR: router-apply must be run as root -- try with sudo",
             file=sys.stderr,
         )
         raise SystemExit(1)
