@@ -15,6 +15,7 @@ dependencies = ["PyYAML>=6.0"]
 [project.scripts]
 router-apply = "router.apply:main"
 router-show = "router.show:main"
+router-validate = "router.validate:main"
 
 [tool.setuptools]
 package-dir = {"" = "src"}

@@ -1,3 +1,4 @@
+from router.config import load_config
 import ipaddress
 
 
@@ -63,3 +64,21 @@ def validate_config(config: dict) -> None:
 
         if router_ip not in subnet:
             raise ConfigError("DHCP router address must be inside LAN subnet")
+
+
+def main() -> int:
+    try:
+        config = load_config("/etc/router/router.yaml")
+        validate_config(config)
+        print("Configuration is valid.")
+        return 0
+    except ConfigError as exc:
+        print(f"Configuration is invalid: {exc}")
+        return 1
+    except Exception as exc:
+        print(f"Validation failed: {exc}")
+        return 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
